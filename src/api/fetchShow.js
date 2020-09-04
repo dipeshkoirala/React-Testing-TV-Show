@@ -19,7 +19,7 @@ import axios from 'axios'
             return err;
         })
     };
-    fetchShow();
+    // fetchShow();
 //   }, []);
 
 // }

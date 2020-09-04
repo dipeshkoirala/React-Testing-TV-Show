@@ -1,23 +1,78 @@
 import React from "react";
-import Episodes from "./Episodes";
-import {render} from "@testing-library/react";
-test("Missions list shows data when rendered with new missions", () => {
+//import Episodes from "./Episodes";
+
+import {render,screen} from "@testing-library/react"
+//import {getByText} from '@testing-library/dom'
+import Episodes from './Episodes'
+
+
+test("Episode shows data when rendered with new episode", () => {
     // Arrange: simulate the behavior of rendering this component to the page, before we've made an api call
-    const {queryAllByTestId, getAllByTestId, rerender} = render(<Episodes episodes={[]}/>);
+    const {queryAllByTestId, getAllByTestId, rerender} = render(<Episodes missions={[]}/>);
     // sanity check: make sure that there are no missions yet when the component mounts
-    const initialMissions = queryAllByTestId(/e/i);
-    expect(initialMissions).toHaveLength(0);
-    expect(initialMissions).toEqual([]);
+    const firstEpisode = queryAllByTestId(/e/i);
+    expect(firstEpisode).toHaveLength(0);
+    expect(firstEpisode).toEqual([]);
     // Act: re-render the component with missions data
     // (this simulates when the user clicks "Get Data", triggering an api fetch)
-    rerender(<Episodes error="" episodes={data} />);
+    rerender(<Episode error="" episodes={data} />);
     const missions = getAllByTestId(/e/i);
     // Assert: 3 missions should render to the page
-    expect(missions).toHaveLength(3);
+    expect(missions).toHaveLength(5);
 });
+
+describe('test testing it!', ()=>{
+    test('It tests like this',()=>{
+        expect(true).toBe(true)
+    })
+    test('false is falsy', ()=>{
+        expect(false).toBe(false)
+    })
+})
+function sum(x,y){
+    return x+y;
+}
+test('sum up the values',()=>{
+    expect(sum(4,2)).toBe(6)
+})
+
+// test("renders Episodes without crash",()=>{
+//     render(<Episodes/>)
+//     screen.debug();
+// })
+
+
+
+// import {getByText,queryAllByTestId,getAllByTestId,render} from "@testing-library/react";
+// test("Missions list shows data when rendered with new missions", () => {
+//     // Arrange: simulate the behavior of rendering this component to the page, before we've made an api call
+//     const {queryAllByTestId, getAllByTestId, rerender,getByText} = render(<Episodes episodes={[]}/>);
+//     // sanity check: make sure that there are no missions yet when the component mounts
+//     const initialMissions = queryAllByTestId(/e/i);
+//     expect(initialMissions).toHaveLength(0);
+//     expect(initialMissions).toEqual([]);
+//     // Act: re-render the component with missions data
+//     // (this simulates when the user clicks "Get Data", triggering an api fetch)
+//     rerender(<Episodes error="" episodes={data} />);
+//     const missions = getAllByTestId(/e/i);
+//     // Assert: 3 missions should render to the page
+//     expect(missions).toHaveLength(3);
+// });
+
+//example of unit test
+
+test ("toUpperCase",()=>{
+//arrange
+    const toUpperCase=info=>info.toUpperCase();
+//act
+const result=toUpperCase('Click to modify')
+//assert
+expect(result).toEqual('CLICK TO MODIFY')
+})
 
 const data = [
     {
+        
       id: 2993,
       url: "http://www.tvmaze.com/shows/2993/stranger-things",
       name: "Stranger Things",
@@ -91,6 +146,8 @@ const data = [
               },
             },
           },
+          //------------------------------------------------------------------
+
 
 
 
@@ -119,6 +176,8 @@ const data = [
               },
             },
           },
+          //------------------------------------------------------------------
+
           {
             id: 578664,
             url:
@@ -144,6 +203,8 @@ const data = [
               },
             },
           },
+          //------------------------------------------------------------------
+
 
 
 
@@ -172,6 +233,8 @@ const data = [
               },
             },
           },
+          //------------------------------------------------------------------
+
           {
             id: 578666,
             url:
@@ -197,6 +260,8 @@ const data = [
               },
             },
           },
+          //------------------------------------------------------------------
+
 
 
           
@@ -225,6 +290,8 @@ const data = [
               },
             },
           },
+          //------------------------------------------------------------------
+
         ],
       },
     },
