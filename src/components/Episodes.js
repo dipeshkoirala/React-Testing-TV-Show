@@ -1,9 +1,11 @@
 import React from 'react';
 import parse from 'html-react-parser';
 
-export default function Episodes(props) {
+const Episodes=(props)=> {
+  console.log("props in episode is an? " ,props.episodes)
   return (
     <div className="episodes">
+     
       {props.episodes.map(e => (
         <div className="episode" key={e.id}>
           {e.image && (
@@ -23,3 +25,4 @@ export default function Episodes(props) {
     </div>
   );
 }
+export default  Episodes
